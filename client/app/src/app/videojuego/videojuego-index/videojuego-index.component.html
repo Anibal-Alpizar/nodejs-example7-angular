@@ -4,8 +4,8 @@
     <mat-card-content>
       <mat-form-field class="full-width">
         <mat-label>Nombre Videojuego</mat-label>
-        <input matInput >
-        <button mat-icon-button matSuffix color="primary" >
+        <input matInput #filter>
+        <button mat-icon-button matSuffix color="primary" (click)="filterVideoJuegos(filter.value)">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field> 
@@ -15,7 +15,7 @@
 
   <h1 class="mat-h1">Videojuegos</h1>
   <mat-grid-list [cols]="3" rowHeight="12em" gutterSize="10px">
-    <mat-grid-tile *ngFor="let item of datos">
+    <mat-grid-tile *ngFor="let item of filterDatos">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>{{item.nombre}} </mat-card-title>
